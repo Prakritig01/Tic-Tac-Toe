@@ -1,5 +1,5 @@
 let boxes = document.querySelectorAll(".box");
-
+const resetBtn = document.querySelector("#reset");
 let turn0 = true;
 const winPatterns = [
     [0,1,2],
@@ -55,3 +55,14 @@ function disableAllBoxes(){
         box.disabled = true;
     })
 }
+
+function resetAll() {
+    boxes.forEach((box) =>{
+        box.innerHTML = "";
+        box.disabled = false; 
+        box.classList.remove("winner"); 
+    })
+    turn0 = true;
+}
+
+resetBtn.addEventListener("click" , resetAll);
